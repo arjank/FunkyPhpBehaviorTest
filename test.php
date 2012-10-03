@@ -24,7 +24,13 @@ class A extends Foo {
 	}
 }
 
-class B extends Foo {
+class Bar extends Foo {
+	protected function test() {
+		echo 'Just hello world';
+	}
+}
+
+class B extends Bar {
 
 }
 
@@ -32,8 +38,7 @@ $a = new A();
 $a->testB();
 
 $contents = ob_get_clean();
-echo $contents;
 
-exit(($contents === 'Constructing Constructing Hello world Foo::test') ? 0 : 1);
+exit(($contents === 'Constructing Constructing Just hello world') ? 0 : 1);
 
 #EOF
