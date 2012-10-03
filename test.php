@@ -1,9 +1,11 @@
 <?php
+error_reporting(E_ALL);
+
 ob_start();
 
 class Foo {
 	protected function __construct() {
-		echo('Constructing ' . get_called_class());
+		echo('Constructing ');
 	}
 
 	protected function test() {
@@ -30,7 +32,8 @@ $a = new A();
 $a->testB();
 
 $contents = ob_get_clean();
+echo $contents;
 
-exit(($contents === 'Constructing AConstructing BHello world Foo::test') ? 0 : 1);
+exit(($contents === 'Constructing Constructing Hello world Foo::test') ? 0 : 1);
 
 #EOF
